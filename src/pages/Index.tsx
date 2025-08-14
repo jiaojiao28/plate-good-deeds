@@ -4,6 +4,7 @@ import ImpactMetrics from "@/components/ImpactMetrics";
 import Testimonials from "@/components/Testimonials";
 import ForPartners from "@/components/ForPartners";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Testimonials />
       <ForPartners />
       <Footer />
+      <Chatbot />
     </div>
   );
 };
