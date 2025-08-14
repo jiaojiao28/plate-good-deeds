@@ -111,13 +111,27 @@ All colors MUST be HSL.
     @apply bg-background text-foreground font-sans;
   }
 
-  /* Custom gradients and effects */
+  /* Enhanced gradients and effects */
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 50%, hsl(var(--muted)) 100%);
+  }
+
+  .gradient-works {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 50%, hsl(var(--card)) 100%);
   }
 
   .gradient-impact {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+  }
+
+  .gradient-impact-section {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)/0.3) 25%, hsl(var(--muted)/0.2) 75%, hsl(var(--background)) 100%);
+  }
+
+  .gradient-mesh {
+    background: radial-gradient(circle at 20% 50%, hsl(var(--primary)/0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, hsl(var(--secondary)/0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, hsl(var(--accent)/0.1) 0%, transparent 50%);
   }
 
   .discount-badge {
@@ -125,13 +139,33 @@ All colors MUST be HSL.
     animation: pulse 2s infinite;
   }
 
+  .text-glow {
+    text-shadow: 0 0 20px hsla(var(--primary), 0.5);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 20px 60px hsla(var(--primary), 0.3), 0 0 40px hsla(var(--primary), 0.1);
+  }
+
+  .shadow-step {
+    box-shadow: 0 10px 30px hsla(var(--primary), 0.2);
+  }
+
+  .shadow-step-hover {
+    box-shadow: 0 20px 50px hsla(var(--primary), 0.4), 0 0 30px hsla(var(--primary), 0.2);
+  }
+
+  .shadow-icon {
+    box-shadow: 0 10px 25px hsla(var(--primary), 0.3);
+  }
+
   .food-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .food-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px hsla(var(--primary), 0.3);
+    transform: translateY(-12px) rotate(2deg);
+    box-shadow: 0 25px 50px hsla(var(--primary), 0.4);
   }
 }
 
@@ -160,10 +194,77 @@ All colors MUST be HSL.
     @apply max-w-7xl mx-auto;
   }
 
-  /* Impact metrics */
+  /* Enhanced metric cards */
   .metric-card {
     @apply bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 text-center;
     background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  .metric-card-enhanced {
+    @apply bg-card/60 backdrop-blur-md border border-primary/30 rounded-3xl p-8 text-center transition-all duration-500;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--card)/0.8) 50%, hsl(var(--muted)) 100%);
+  }
+
+  .metric-card-enhanced:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px hsla(var(--primary), 0.2);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  /* Animation classes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+
+  @keyframes float-card {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes slide-down {
+    from { 
+      opacity: 0; 
+      transform: translateY(-30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0px); 
+    }
+  }
+
+  @keyframes progress-fill {
+    from { width: 0%; }
+    to { width: var(--progress-width, 90%); }
+  }
+
+  @keyframes counter-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-card {
+    animation: float-card 3s ease-in-out infinite;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.8s ease-out forwards;
+  }
+
+  .progress-fill {
+    animation: progress-fill 2s ease-out forwards;
+  }
+
+  .progress-glow {
+    animation: progress-fill 2s ease-out forwards, pulse 2s ease-in-out infinite;
+  }
+
+  .counter-animation {
+    animation: counter-up 0.6s ease-out forwards;
   }
 
   /* Testimonial cards */
