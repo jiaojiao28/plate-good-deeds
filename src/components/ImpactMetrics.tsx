@@ -89,7 +89,10 @@ const ImpactMetrics = () => {
             <p className="text-white/90 mb-6">
               Every meal you save or donate creates a ripple effect of positive change in your community.
             </p>
-            <button className="bg-white text-primary hover:bg-white/90 px-8 py-3 rounded-full font-semibold transition-all hover:scale-105">
+            <button 
+              className="bg-white text-primary hover:bg-white/90 px-8 py-3 rounded-full font-semibold transition-all hover:scale-105"
+              onClick={() => window.open('https://food-share-impact.lovable.app/', '_blank')}
+            >
               Start Making an Impact
             </button>
           </div>

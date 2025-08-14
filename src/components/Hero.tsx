@@ -31,11 +31,17 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button className="btn-hero group">
+            <Button 
+              className="btn-hero group"
+              onClick={() => window.open('https://food-share-impact.lovable.app/', '_blank')}
+            >
               Browse Meals
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button className="btn-secondary-hero group">
+            <Button 
+              className="btn-secondary-hero group"
+              onClick={() => window.open('https://food-share-impact.lovable.app/', '_blank')}
+            >
               <Heart className="mr-2 h-5 w-5" />
               Donate Food
             </Button>
