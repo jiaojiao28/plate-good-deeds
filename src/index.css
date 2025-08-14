@@ -8,33 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors - Warm, socially conscious palette */
+    --background: 227 39% 13%; /* Deep navy background */
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 227 32% 16%; /* Slightly lighter navy for cards */
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 227 32% 16%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Vibrant eco green */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 142 76% 42%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Warm orange for urgency/discounts */
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 227 39% 13%;
+    --secondary-hover: 25 95% 58%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 227 20% 25%;
+    --muted-foreground: 225 15% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Bright highlight */
+    --accent: 45 93% 58%; /* Warm yellow */
+    --accent-foreground: 227 39% 13%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* UI Elements */
+    --border: 227 20% 25%;
+    --input: 227 20% 25%;
+    --ring: 142 76% 36%;
 
     --radius: 0.5rem;
 
@@ -100,6 +108,66 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom gradients and effects */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+  }
+
+  .gradient-impact {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .discount-badge {
+    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-hover)) 100%);
+    animation: pulse 2s infinite;
+  }
+
+  .food-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .food-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px hsla(var(--primary), 0.3);
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105;
+    box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
+  }
+
+  .btn-secondary-hero {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105;
+    box-shadow: 0 10px 30px hsla(var(--secondary), 0.3);
+  }
+
+  .btn-donate {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 px-6 py-3 font-medium rounded-full transition-all duration-300;
+  }
+
+  /* Section styles */
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Impact metrics */
+  .metric-card {
+    @apply bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 text-center;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  /* Testimonial cards */
+  .testimonial-card {
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:border-primary/30;
   }
 }
